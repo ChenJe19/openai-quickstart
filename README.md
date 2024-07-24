@@ -151,4 +151,16 @@ Django Peng - pjt73651@email.com
 ### Day1
 https://chatgpt.com/c/ae9679bb-2220-4e19-86f5-e4944357e184
 
+### Day2
+GPT-4V: https://github.com/ChenJe19/openai-quickstart/blob/main/openai_api/gpt-4v.ipynb
+
+ai translator 1.0: https://github.com/ChenJe19/openai-quickstart/blob/main/openai-translator/ai_translator/main.py
+
+ai translator 2.0: https://github.com/ChenJe19/openai-quickstart/blob/main/langchain/openai-translator/ai_translator/main.py
+
+扩展langchain chains: https://github.com/ChenJe19/openai-quickstart/blob/main/langchain/jupyter/chains/router_chain.ipynb
+
+### Day3
+https://github.com/ChenJe19/openai-quickstart/tree/main/langchain/car_sales_chatbot
+
 
