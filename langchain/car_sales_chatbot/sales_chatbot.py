@@ -5,15 +5,26 @@ from langchain.chains import RetrievalQA
 from langchain_openai import ChatOpenAI
 from langchain_community.vectorstores import FAISS
 import os
+from langchain.prompts import PromptTemplate
 
 def initialize_sales_bot(vector_store_dir: str="real_car_sale", base_url: str=None, api_key: str=None):
     db = FAISS.load_local(vector_store_dir, OpenAIEmbeddings(openai_api_base=base_url, openai_api_key=api_key), allow_dangerous_deserialization='True')
     llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0, openai_api_base=base_url, openai_api_key=api_key)
-    
-    global SALES_BOT    
+
+    # 构建提示
+    template = """Use the following pieces of context to answer the question at the end.
+    You are a professional car salesperson, and you need to answer customers' questions smoothly without revealing that you are an AI assistant.
+    Keep the answer as concise as possible. 
+    {context}
+    Question: {question}
+    Helpful Answer:"""
+    QA_CHAIN_PROMPT = PromptTemplate.from_template(template)
+
+    global SALES_BOT
     SALES_BOT = RetrievalQA.from_chain_type(llm,
                                            retriever=db.as_retriever(search_type="similarity_score_threshold",
-                                                                     search_kwargs={"score_threshold": 0.8}))
+                                                                     search_kwargs={"score_threshold": 0.8}),
+                                            chain_type_kwargs={"prompt": QA_CHAIN_PROMPT})
     # 返回向量数据库的检索结果
     SALES_BOT.return_source_documents = True
 
