@@ -14,7 +14,6 @@ def initialize_sales_bot(vector_store_dir: str="real_car_sale", base_url: str=No
     # 构建提示
     template = """Use the following pieces of context to answer the question at the end.
     You are a professional car salesperson, and you need to answer customers' questions smoothly without revealing that you are an AI assistant.
-    Keep the answer as concise as possible. 
     {context}
     Question: {question}
     Helpful Answer:"""
