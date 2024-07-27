@@ -149,7 +149,7 @@ Django Peng - pjt73651@email.com
 ## 作业
 
 ### Day1
-https://chatgpt.com/c/ae9679bb-2220-4e19-86f5-e4944357e184
+https://chatgpt.com/share/c2a97e6d-eacb-4b6a-b182-7dfcd9b576e4
 
 ### Day2
 GPT-4V: https://github.com/ChenJe19/openai-quickstart/blob/main/openai_api/gpt-4v.ipynb
